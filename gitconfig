@@ -1,0 +1,36 @@
+[user]
+  name = crashh
+  email = rad.wozniak@gmail.com
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim --noplugin
+[apply]
+  whitespace = nowarn
+[alias]
+      lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[help]
+  autocorrect = 1
+[credential]
+  helper = osxkeychain
+[color]
+  ui = true
+  diff = auto
+  status = auto
+  branch = auto
+[push]
+  default = current
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+  tool = Kaleidoscope
+[difftool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool]
+  prompt = false
+[merge]
+  tool = Kaleidoscope
+[github]
+  user = crashh
