@@ -2,7 +2,8 @@
 ZSH=$HOME/.dotfiles/oh-my-zsh
 
 # specify a theme
-export ZSH_THEME="robbyrussell"
+export ZSH_THEME="intridea"
+export ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
 
 # Never know when you're gonna need to popd!
 setopt AUTO_PUSHD
