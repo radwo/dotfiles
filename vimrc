@@ -146,6 +146,10 @@ set noesckeys
 
 set nocompatible
 
+" For all text files set 'textwidth' to 78 characters.
+autocmd FileType text setlocal textwidth=78
+set colorcolumn=+1
+
 " Make the omnicomplete text readable
 :highlight PmenuSel ctermfg=black
 
