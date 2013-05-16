@@ -40,6 +40,7 @@ Thumbs.db
 # VIM
 ######################
 .*.swp
+.*.swo
 
 # RVM
 #####################
@@ -51,3 +52,17 @@ Thumbs.db
 
 tags
 .netrwhist
+
+# Sublime Text 2 files #
+######################
+*.sublime-project
+*.sublime-workspace
+
+# dark files
+#####################
+*._dark
+
+# pow files
+#####################
+.powrc
+.powenv
