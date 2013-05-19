@@ -47,3 +47,5 @@ export RUBY_HEAP_FREE_MIN=500000
 # Disable flow control commands (keeps C-s from freezing everything)
 stty start undef
 stty stop undef
+
+export EDITOR=vim
