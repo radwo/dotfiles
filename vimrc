@@ -36,6 +36,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'croaky/vim-colors-github'
 Bundle 'juvenn/mustache'
+Bundle 'vim-scripts/TailMinusF'
 
 "" vim-snipmate  dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
