@@ -1,4 +1,6 @@
 # Path to your oh-my-zsh configuration.
+setopt NO_BEEP
+
 ZSH=$HOME/.dotfiles/oh-my-zsh
 
 # specify a theme
