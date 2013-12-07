@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
-export PATH=$HOME/bin:$HOME/pear/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/bin/mysql
+export PATH=$PATH:$HOME/bin:$HOME/pear/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/bin/mysql
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
