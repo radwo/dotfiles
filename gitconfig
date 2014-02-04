@@ -70,5 +70,6 @@
   prompt = false
 [merge]
   tool = Kaleidoscope
+	conflictstyle = diff3
 [github]
   user = crashh
