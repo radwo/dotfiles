@@ -73,3 +73,5 @@
 	conflictstyle = diff3
 [github]
   user = crashh
+[rerere]
+	enabled = 1
