@@ -45,6 +45,7 @@
       ra = !git r --all
       l = "!. ~/.githelpers && pretty_git_log"
       la = !git l --all
+	up = "!git remote update -p; git merge --ff-only @{u}"
 
 [help]
   autocorrect = 1
@@ -70,8 +71,8 @@
   prompt = false
 [merge]
   tool = Kaleidoscope
-	conflictstyle = diff3
+  conflictstyle = diff3
 [github]
-  user = crashh
+  user = radwo
 [rerere]
-	enabled = 1
+  enabled = 1
