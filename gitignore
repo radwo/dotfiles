@@ -43,10 +43,6 @@ Thumbs.db
 .*.swo
 .*.swn
 
-# RVM
-#####################
-.ruby-version
-
 # SVN
 ####################
 .svn/
