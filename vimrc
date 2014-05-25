@@ -121,11 +121,27 @@ au BufRead,BufNewFile *.haml set ft=haml
 au BufRead,BufNewFile *.js set ft=javascript syntax=javascript
 au BufRead,BufNewfile *.rb set ft=ruby syntax=ruby
 
-" Use Ag (https://github.com/ggreer/the_silver_searcher) instead of Ack when
-" available
+" The Silver Searcher
 if executable("ag")
+  " Use ag over Ack
   let g:ackprg = 'ag --nogroup --nocolor --column'
+
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <c-^>
