@@ -4,7 +4,7 @@ begin
   require 'pry'
   Pry.start
   exit
-rescue LoadError => e
+rescue LoadError
   warn "=> Unable to load pry"
   require 'irb/completion'
   require 'irb/ext/save-history'
