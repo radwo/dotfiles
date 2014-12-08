@@ -168,7 +168,7 @@ set wildmode=list:longest         " Complete files like a shell.
 set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc,.gitignore,.DS_Store,data
 
 "" Misc shortcuts
-nnoremap <Leader>\ :nohl<cr>      " un-highlight search results
+nnoremap <Leader>\ :nohlsearch<cr>      " un-highlight search results
 map <F5> :call system('pbcopy', @%)<cr> " Copy file path to clipboard
 map <Leader>p :CtrlP<cr>
 map <Leader>b :CtrlPBuffer<cr>
