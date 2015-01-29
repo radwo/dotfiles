@@ -38,6 +38,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/TailMinusF'
 Bundle 'vim-scripts/YankRing.vim'
+Bundle 'ngmy/vim-rubocop'
 
 "" vim-snipmate  dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
