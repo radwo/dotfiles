@@ -63,3 +63,8 @@ tags
 #####################
 .powrc
 .powenv
+
+# ruby
+#####################
+.ruby-version
+.ruby-gemset
