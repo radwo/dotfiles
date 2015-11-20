@@ -137,6 +137,11 @@ if executable("ag")
   let g:ctrlp_use_caching = 0
 endif
 
+" because of missclicks ;)
+command Q q
+command Wq wq
+command W w
+
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
