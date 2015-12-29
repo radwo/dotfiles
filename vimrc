@@ -65,7 +65,9 @@ map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 syntax on
 
 " Color scheme
-colorscheme github
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
