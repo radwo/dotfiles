@@ -39,6 +39,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/TailMinusF'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'ngmy/vim-rubocop'
+Bundle 'henrik/vim-ruby-runner'
 
 "" vim-snipmate  dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
