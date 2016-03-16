@@ -46,3 +46,6 @@ stty stop undef
 export EDITOR=vim
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+# added by travis gem
+[ -f /Users/dark/.travis/travis.sh ] && source /Users/dark/.travis/travis.sh
