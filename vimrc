@@ -182,7 +182,7 @@ set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc,
 nnoremap <Leader>\ :nohlsearch<cr>      " un-highlight search results
 map <F5> :call system('pbcopy', @%)<cr> " Copy file path to clipboard
 map <Leader>p :CtrlP<cr>
-map <Leader>b :CtrlPBuffer<cr>
+map <Leader>m :CtrlPBuffer<cr>
 
 "" ctrl + hjkl
 map <C-j> <C-W>j
