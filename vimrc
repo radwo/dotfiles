@@ -49,6 +49,8 @@ Bundle "tomtom/tlib_vim"
 Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 
+Bundle 'slim-template/vim-slim.git'
+
 "...All your other bundles...
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
