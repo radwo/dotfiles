@@ -70,7 +70,7 @@ map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 syntax on
 
 " Color scheme
-set background=dark
+set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
 highlight NonText guibg=#060606
