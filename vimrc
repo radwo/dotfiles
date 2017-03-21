@@ -301,7 +301,8 @@ map <Leader>n :call RenameFile()<cr>
 
 " ESLint
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=\ %3*%{StatlineSyntastic()}%*
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -311,6 +312,15 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+function! StatlineSyntastic()
+  " safe guard against syntastic being only loaded after statline
+  if exists('g:loaded_syntastic_plugin')
+    return SyntasticStatuslineFlag()
+  else
+    return ''
+  endif
+endfunction
 
 " https://github.com/garybernhardt/dotfiles/commit/99b7d2537ad98dd7a9d3c82b8775f0de1718b356
 " Use the old vim regex engine (version 1, as opposed to version 2, which was
