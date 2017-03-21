@@ -57,6 +57,10 @@ LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
 if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
   . $LUNCHY_DIR/lunchy-completion.zsh
 fi
+
+ssh-add -K ~/.ssh/infakt
+ssh-add -K ~/.ssh/github_rsa
+
 [ -f ~/.gnupg/gpg-agent.env ] && source ~/.gnupg/gpg-agent.env
 if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
   export GPG_AGENT_INFO
