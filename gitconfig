@@ -46,7 +46,7 @@
       ra = !git r --all
       l = "!. ~/.githelpers && pretty_git_log"
       la = !git l --all
-	up = "!git remote update -p; git merge --ff-only @{u}"
+      up = "!git remote update -p; git merge --ff-only @{u}"
 
 [help]
   autocorrect = 1
@@ -90,19 +90,19 @@
 [rerere]
   enabled = 1
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 [diff "ansible-vault"]
   textconv = ansible-vault view
   cachetextconv = false
