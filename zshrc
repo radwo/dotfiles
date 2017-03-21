@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh configuration.
 setopt NO_BEEP
 
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 ZSH=$HOME/.dotfiles/oh-my-zsh
 
 # specify a theme
