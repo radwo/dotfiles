@@ -23,12 +23,11 @@ HISTSIZE=20000
 HISTFILE=~/.zsh_history
 SAVEHIST=20000
 
-export PATH=$HOME/bin:$HOME/pear/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/bin/mysql:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/bin:$HOME/pear/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/bin/mysql:$PATH
+export PATH="/usr/local/opt/node@6/bin:$PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# load rbenv
+eval "$(rbenv init -)"
 
 # load from the available list of plugins at ~/.oh-my-zsh/plugins
 plugins=(bundler git git-flow rails ruby cap brew gem github osx vagrant)
