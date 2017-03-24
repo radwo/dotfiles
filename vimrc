@@ -198,11 +198,11 @@ set noesckeys
 
 set nocompatible
 
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
+" For all text files set 'textwidth' to 81 characters.
+autocmd FileType text setlocal textwidth=81
 augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#CFCFCF
-  autocmd BufEnter * match OverLength /\%78v.*/
+  autocmd BufEnter * highlight OverLength ctermbg=15 guibg=#592929
+  autocmd BufEnter * match OverLength /\%81v.*/
 augroup END
 
 " Make the omnicomplete text readable
