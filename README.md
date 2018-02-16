@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-git clone git://github.com/crashh/dotfiles ~/.dotfiles
+git clone git://github.com/radwo/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 
 git submodule update --init --recursive
