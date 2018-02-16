@@ -1,5 +1,15 @@
 #!/usr/bin/env ruby
 
+def replace_file(file)
+  system %Q{rm "$HOME/.#{file}"}
+  link_file(file)
+end
+
+def link_file(file)
+  puts "linking ~/.#{file}"
+  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+end
+
 replace_all = false
 Dir['*'].each do |file|
   next if %w[Rakefile README LICENSE id_dsa.pub].include? file
@@ -32,13 +42,3 @@ system %Q{rm "$HOME/.ssh/id_dsa.pub"}
 system %Q{ln -s "$PWD/id_dsa.pub" "$HOME/.ssh/id_dsa.pub"}
 
 system %Q{mkdir ~/.tmp}
-
-def replace_file(file)
-  system %Q{rm "$HOME/.#{file}"}
-  link_file(file)
-end
-
-def link_file(file)
-  puts "linking ~/.#{file}"
-  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
-end
