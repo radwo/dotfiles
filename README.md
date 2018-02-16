@@ -1,6 +1,6 @@
-* Radosław Woźniak's dot files
+# Radosław Woźniak's dot files
 
-*** Installation
+## Installation
 
 ```
 git clone git://github.com/crashh/dotfiles ~/.dotfiles
@@ -16,5 +16,8 @@ Vim plugins are managed through vundle. You'll need to install vundle to get the
 
 ```
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-Run :BundleInstall in vim.
+```
+And in vim run
+```
+:BundleInstall.
 ```
