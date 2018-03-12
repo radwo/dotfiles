@@ -20,3 +20,6 @@ alias v='vim'
 alias vi='vim'
 alias z='zeus'
 alias zs='zeus start'
+
+alias bb="cd ~/boxbox && vagrant up && vagrant ssh -c 'tmux -2'"
+alias bhalt="cd ~/boxbox && vagrant halt"
