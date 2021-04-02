@@ -27,14 +27,10 @@ HISTSIZE=20000
 HISTFILE=~/.zsh_history
 SAVEHIST=20000
 
-export PATH=$HOME/.rbenv/bin:$HOME/bin:$HOME/pear/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/bin/mysql:$PATH
-export PATH="/usr/local/opt/node@6/bin:$PATH"
-
-# load rbenv
-eval "$(rbenv init -)"
+export PATH=$HOME/bin:$HOME/pear/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
 
 # load from the available list of plugins at ~/.oh-my-zsh/plugins
-plugins=(bundler git git-flow rails ruby cap brew gem github osx vagrant)
+plugins=(bundler git git-flow rails ruby cap brew gem github osx vagrant asdf)
 
 source $ZSH/oh-my-zsh.sh
 # source ~/.git-flow-completion.zsh #you have to paste that file to that location then
@@ -53,12 +49,6 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 # added by travis gem
 [ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
 
-LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
-if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
-  . $LUNCHY_DIR/lunchy-completion.zsh
-fi
-
-ssh-add -K ~/.ssh/infakt
 ssh-add -K ~/.ssh/github_rsa
 
 [ -f ~/.gnupg/gpg-agent.env ] && source ~/.gnupg/gpg-agent.env
@@ -67,3 +57,4 @@ if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
 else
   eval $(gpg-agent --daemon --log-file /tmp/gpg.log --write-env-file ~/.gnupg/gpg-agent.env --pinentry-program /usr/local/bin/pinentry-mac)
 fi
+fpath+=${ZDOTDIR:-~}/.zsh_functions

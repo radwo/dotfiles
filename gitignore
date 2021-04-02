@@ -64,7 +64,8 @@ tags
 .powrc
 .powenv
 
-# ruby
+# versions
 #####################
 .ruby-version
 .ruby-gemset
+.tool-versions

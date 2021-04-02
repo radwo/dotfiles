@@ -18,8 +18,11 @@ alias rc='rails console'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:test:prepare'
 alias v='vim'
 alias vi='vim'
-alias z='zeus'
-alias zs='zeus start'
+alias nvim='vim'
 
 alias bb="cd ~/boxbox && vagrant up && vagrant ssh -c 'tmux -2'"
 alias bhalt="cd ~/boxbox && vagrant halt"
+
+alias bbl="cd ~/boxbox-litle && vagrant up && vagrant ssh -c 'tmux -2'"
+alias blhalt="cd ~/boxbox-litle && vagrant halt"
+alias bblr="cd ~/boxbox-litle && vagrant halt && vagrant up && vagrant ssh -c 'tmux -2'"
