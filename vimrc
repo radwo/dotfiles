@@ -1,83 +1,59 @@
 " Leader
 let mapleader = ","
 
-""" Vundle config start
-filetype off                   " required!
-
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
+" vim-plug: Vim plugin manager
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-"Add your bundles here
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Syntastic'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'croaky/vim-colors-github'
-Bundle 'juvenn/mustache'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'scrooloose/nerdtree'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-eunuch'
-"Bundle 'tpope/vim-rsi'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'vim-scripts/TailMinusF'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'ngmy/vim-rubocop'
-Bundle 'henrik/vim-ruby-runner'
-Bundle 'rizzatti/dash.vim'
-Bundle 'renderedtext/vim-bdd'
 
-"" vim-snipmate  dependencies
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
-Bundle "garbas/vim-snipmate"
+let g:ale_disable_lsp = 1  " coc for lsp
 
-Bundle 'slim-template/vim-slim.git'
+call plug#begin('~/.vim/bundle')
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
+Plug 'junegunn/fzf'
+Plug 'preservim/nerdtree'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-eunuch'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'elixir-editors/vim-elixir'
+Plug 'rizzatti/dash.vim'
+Plug 'renderedtext/vim-bdd'
+Plug 'slim-template/vim-slim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
+Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
 
-"...All your other bundles...
-if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :BundleInstall
-endif
-" Setting up Vundle - the vim plugin bundler end
+"" to check
+" Bundle 'tpope/vim-rsi'
 
-""" Vundle config end
+call plug#end()
 
-map <Leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
-map <Leader>pn :sp ~/Dropbox/work/infakt/notes/project-notes.txt<cr>
-map <Leader>o :call RunCurrentLineInTest()<CR>
-map <Leader>t :w<cr>:call RunCurrentTest()<CR>
-
-"" General settings
-syntax on
-
-" Color scheme
-set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+" Colorscheme
+" https://sw.kovidgoyal.net/kitty/faq.html#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
+let &t_ut=''
+syntax enable
+set background=dark
+colorscheme iceberg
+set termguicolors
 
 set encoding=utf-8
 set showcmd                     " display incomplete commands
@@ -108,9 +84,9 @@ set smartcase                   " ... unless they contain at least one capital l
 
 
 "" Line numbering, cursor
-set number                        " Show line numbers
+"set relativenumber                " Show relative line numbers
+set number                        " Show current line number
 set numberwidth=5
-set ruler                         " Show cursor position.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 " Markdown
@@ -139,12 +115,6 @@ if executable("ag")
 
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
 
 " bind K to grep word under cursor
@@ -178,6 +148,12 @@ function! ShowFileInNERDTree()
 endfunction
 map <Leader>d :call ShowFileInNERDTree()<cr>
 
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 "" Wild stuff
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
@@ -186,8 +162,7 @@ set wildignore+=vendor,log,tmp,*.swp,.git,gems,.bundle,Gemfile.lock,.gem,.rvmrc,
 "" Misc shortcuts
 nnoremap <Leader>\ :nohlsearch<cr>      " un-highlight search results
 map <F5> :call system('pbcopy', @%)<cr> " Copy file path to clipboard
-map <Leader>p :CtrlP<cr>
-map <Leader>m :CtrlPBuffer<cr>
+map <Leader>p :FZF<cr>
 
 "" ctrl + hjkl
 map <C-j> <C-W>j
@@ -243,53 +218,6 @@ map <C-p> :cp<CR>
 " Set the tag file search order
 set tags=./tags;
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Test-running stuff
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-
-    if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("!cucumber")
-      exec g:bjo_test_runner g:bjo_test_file
-    elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("!bin/rspec")
-      exec g:bjo_test_runner g:bjo_test_file
-    else
-      call SetTestRunner("!ruby -Itest")
-      exec g:bjo_test_runner g:bjo_test_file
-    endif
-  else
-    exec g:bjo_test_runner g:bjo_test_file
-  endif
-endfunction
-
-function! SetTestRunner(runner)
-  let g:bjo_test_runner=a:runner
-endfunction
-
-function! RunCurrentLineInTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFileWithLine()
-  end
-
-  exec "!bin/rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
-endfunction
-
-function! SetTestFile()
-  let g:bjo_test_file=@%
-endfunction
-
-function! SetTestFileWithLine()
-  let g:bjo_test_file=@%
-  let g:bjo_test_file_line=line(".")
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'), 'file')
@@ -330,3 +258,28 @@ endfunction
 " significantly
 " slower with the new regex engine.
 set re=1
+
+let g:snipMate = { 'snippet_version' : 1 }
+
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_signs = 1
+let g:gitgutter_sign_allow_clobber = 0
+" set signcolumn=number
+
+
+" coc
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \}
+
+" https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes#For_VTE_compatible_terminals_.28urxvt.2C_st.2C_xterm.2C_gnome-terminal_3.x.2C_Konsole_KDE5_and_others.29_and_wsltty
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"

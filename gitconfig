@@ -112,3 +112,5 @@
   driver = /usr/local/bin/ansible-vault-merge -- %O %A %B %P
 [commit]
 	gpgSign = true
+[init]
+	defaultBranch = master

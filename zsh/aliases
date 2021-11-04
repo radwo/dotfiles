@@ -7,22 +7,8 @@ elif [[ $platform == 'Darwin' ]]; then
 fi
 
 alias aliases='vim ~/.dotfiles/zsh/aliases'
-alias amend="git commit --amend"
-alias bake='bundle exec rake'
-alias be='bundle exec'
-alias bi='bundle install'
 alias irb='irb --readline -r irb/completion'
-alias patch='git format-patch HEAD^ --stdout > patch.diff'
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *'
-alias rc='rails console'
-alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:test:prepare'
 alias v='vim'
 alias vi='vim'
 alias nvim='vim'
-
-alias bb="cd ~/boxbox && vagrant up && vagrant ssh -c 'tmux -2'"
-alias bhalt="cd ~/boxbox && vagrant halt"
-
-alias bbl="cd ~/boxbox-litle && vagrant up && vagrant ssh -c 'tmux -2'"
-alias blhalt="cd ~/boxbox-litle && vagrant halt"
-alias bblr="cd ~/boxbox-litle && vagrant halt && vagrant up && vagrant ssh -c 'tmux -2'"

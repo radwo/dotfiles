@@ -23,7 +23,6 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 # OS generated files #
@@ -69,3 +68,16 @@ tags
 .ruby-version
 .ruby-gemset
 .tool-versions
+
+" Enhance Rails Intellisense in Solargraph
+" https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e
+####################
+solargraph.rb
+
+# dotenv
+####################
+.env.development.local
+
+# zsh plugins
+####################
+.mix_tasks
