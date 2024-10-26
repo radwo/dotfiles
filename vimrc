@@ -18,34 +18,37 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'junegunn/fzf'
 Plug 'preservim/nerdtree'
 Plug 'PhilRunninger/nerdtree-buffer-ops'
-Plug 'thoughtbot/vim-rspec'
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'elixir-editors/vim-elixir'
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'rizzatti/dash.vim'
 Plug 'renderedtext/vim-bdd'
 Plug 'slim-template/vim-slim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+" Plug 'neoclide/coc.nvim', { 'branch': 'release', 'for': ['ruby', 'elixir'] }
+" Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'cocopon/iceberg.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} | Plug 'https://codeberg.org/esensar/nvim-dev-container.git'
 
 "" to check
 " Bundle 'tpope/vim-rsi'
 
 call plug#end()
+
+let g:elixir_indent_debug=0
 
 " Colorscheme
 " https://sw.kovidgoyal.net/kitty/faq.html#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
@@ -170,8 +173,27 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Get rid of the delay when hitting esc!
-set noesckeys
+if !has('nvim')
+  " Get rid of the delay when hitting esc!
+  set noesckeys
+endif
+
+if has('nvim')
+:lua require("nvim-treesitter.configs").setup { ensure_installed = { "jsonc" } }
+lua << EOF
+require("devcontainer").setup{
+  attach_mounts = {
+    always = true,
+    neovim_config = {
+      enabled = true
+    },
+    neovim_data = {
+      enabled = true
+    }
+  }
+}
+EOF
+endif
 
 set nocompatible
 
@@ -283,3 +305,5 @@ let g:ale_fixers = {
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
+
+vnoremap <C-c> :w !pbcopy<CR><CR>

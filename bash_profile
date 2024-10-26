@@ -11,3 +11,5 @@ fi
 
 # Enable RVM
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+source ~/.toolbox/toolbox
+source ~/.toolbox/toolbox

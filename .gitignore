@@ -1,2 +1,4 @@
 vim/bundle
+vim/undodir
+vim/plugged
 config/gcloud

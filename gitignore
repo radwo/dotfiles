@@ -41,6 +41,7 @@ Thumbs.db
 .*.swp
 .*.swo
 .*.swn
+.nvimlog
 
 # SVN
 ####################
@@ -81,3 +82,11 @@ solargraph.rb
 # zsh plugins
 ####################
 .mix_tasks
+
+# nix files
+###################
+.direnv
+.envrc
+shell.nix
+nix/
+.devcontainer/

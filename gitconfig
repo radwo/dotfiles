@@ -1,6 +1,6 @@
 [user]
   name = Radosław Woźniak
-  email = rad.wozniak@gmail.com
+  email = 184065+radwo@users.noreply.github.com
 	signingkey = 068361E7C4378FE9
 [core]
   excludesfile = ~/.gitignore

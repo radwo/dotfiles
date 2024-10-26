@@ -1,4 +1,11 @@
 {
   "diagnostic.displayByAle": true,
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "codeLens.enable": true,
+  "languageserver": {
+    "elixirLS": {
+      "command": "/Users/radwo/.elixir-ls/release/language_server.sh",
+      "filetypes": ["elixir_", "eelixir_"]
+    }
+  }
 }
