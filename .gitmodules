@@ -1,6 +1,3 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "zsh/custom/themes/powerlevel10k"]
 	path = zsh/custom/themes/powerlevel10k
 	url = git@github.com:romkatv/powerlevel10k.git
@@ -10,3 +7,6 @@
 [submodule "alacritty/themes"]
 	path = alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule "dot_oh-my-zsh"]
+	path = dot_oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
