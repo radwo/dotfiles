@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ -z $1 ]; then
+  kubectl get pods
+else
+  pod=$(kubectl get pods | grep $1 | head -1 | awk '{ print $1 }')
+
+  if [ -z "${@:2}" ]; then
+    echo -e "\e[32m** running: kubectl exec -ti $pod -- /bin/bash **\e[0m" >&2
+
+    kubectl exec -ti $pod -- /bin/bash
+  else
+    echo -e "\e[32m** running: kubectl exec -ti $pod -- "${@:2}" **\e[0m" >&2
+
+    kubectl exec -ti $pod -- "${@:2}"
+  fi
+fi
