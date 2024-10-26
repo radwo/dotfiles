@@ -7,3 +7,6 @@
 [submodule "zsh/custom/plugins/zsh-vi-mode"]
 	path = zsh/custom/plugins/zsh-vi-mode
 	url = git@github.com:jeffreytse/zsh-vi-mode
+[submodule "alacritty/themes"]
+	path = alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
