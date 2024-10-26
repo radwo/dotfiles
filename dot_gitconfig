@@ -1,7 +1,6 @@
 [user]
     name = Radosław Woźniak
     email = 184065+radwo@users.noreply.github.com
-    signingkey = A002C8A7957C4EA0
 [core]
     excludesfile = ~/.gitignore
     editor = vim --noplugin
@@ -115,3 +114,5 @@
     gpgSign = true
 [init]
     defaultBranch = master
+[include]
+    path = ~/.gitconfig_local
