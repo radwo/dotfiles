@@ -14,6 +14,8 @@ setopt NO_BEEP
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+ZSH_CUSTOM="$HOME/.zsh/custom"
+
 # theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -63,7 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # load from the available list of plugins at ~/.oh-my-zsh/plugins
-plugins=(asdf zsh-asdf-direnv dash dotenv fzf git gcloud gpg-agent kubectl macos safe-paste ssh-agent z)
+plugins=(asdf direnv dash dotenv fzf git gcloud gpg-agent kubectl macos safe-paste ssh-agent z)
 
 # https://docs.brew.sh/Shell-Completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
