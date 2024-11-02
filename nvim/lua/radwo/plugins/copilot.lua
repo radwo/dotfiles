@@ -1,5 +1,3 @@
-local IS_DEV = false
-
 local prompts = {
   -- Code related prompts
   Explain = "Please explain how the following code works.",
@@ -25,8 +23,9 @@ local prompts = {
 
 return {
     {
-        dir = IS_DEV and "~/workspace/CopilotChat.nvim" or nil,
         "CopilotC-Nvim/CopilotChat.nvim",
+        enabled = false,
+        dev = false,
         branch = "canary",
         dependencies = {
             { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
@@ -116,7 +115,7 @@ return {
         },
         opts = {
             debug = false, -- Enable debugging
-            model = 'gpt-4o',
+            model = 'claude-3.5-sonnet',
             prompts = prompts,
             auto_insert_mode = true,
             show_help = false,
