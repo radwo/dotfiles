@@ -1,11 +1,13 @@
 return {
     {
         "yetone/avante.nvim",
+        dev = false,
         enabled = true,
         event = "VeryLazy",
         lazy = false,
         version = false, -- set this if you want to always pull the latest change
         opts = {
+            debug = true,
             provider = "copilot",
             auto_suggestions_provider = "copilot",
             copilot = {
@@ -16,7 +18,7 @@ return {
                 max_tokens = 4096,
             },
             behaviour = {
-                auto_suggestions = false, -- Experimental stage
+                auto_suggestions = true, -- Experimental stage
                 auto_set_highlight_group = true,
                 auto_set_keymaps = true,
                 auto_apply_diff_after_generation = false,
