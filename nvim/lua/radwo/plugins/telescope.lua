@@ -21,9 +21,11 @@ return {
 
             require('telescope').setup {
                 defaults = {
-                    -- Global defaults for telescope go here (if needed)
                 },
                 pickers = {
+                    find_files = {
+                        hidden = true,
+                    },
                     buffers = {
                         attach_mappings = function(_, map)
                             map('i', '<C-X>', actions.delete_buffer)
