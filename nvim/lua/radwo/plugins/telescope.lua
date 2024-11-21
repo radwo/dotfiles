@@ -38,10 +38,27 @@ return {
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown({}),
                     },
+                    aerial = {
+                        -- Set the width of the first two columns (the second
+                        -- is relevant only when show_columns is set to 'both')
+                        col1_width = 4,
+                        col2_width = 30,
+                        -- How to format the symbols
+                        format_symbol = function(symbol_path, filetype)
+                            if filetype == "json" or filetype == "yaml" then
+                                return table.concat(symbol_path, ".")
+                            else
+                                return symbol_path[#symbol_path]
+                            end
+                        end,
+                        -- Available modes: symbols, lines, both
+                        show_columns = "both",
+                    },
                 },
             }
 
             require('telescope').load_extension('fzf')
+            require("telescope").load_extension("aerial")
             require("telescope").load_extension("grapple")
             require("telescope").load_extension("ui-select")
         end,
@@ -49,6 +66,7 @@ return {
             { "<leader>tt", "<cmd>Telescope grapple tags<cr>", desc = "Telescope - grapple tags" },
             { "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Telescope - find files" },
             { "<leader>tb", "<cmd>Telescope buffers<cr>", desc = "Telescope - buffers" },
+            { "<leader>ta", "<cmd>Telescope aerial<cr>", desc = "Telescope - document symbols" },
             { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Telescope - buffers" },
             {
                 "<leader>ts",

@@ -24,7 +24,7 @@ return {
                 },
                 sections = {
                     lualine_b = { window, 'b:gitsigns_head', {'diff', source = diff_source}, "diagnostics" },
-                    lualine_c = {{'filename', path = 1}},
+                    lualine_c = {{'filename', path = 1}, {"aerial", dense = true}},
                     lualine_x = { "grapple", 'encoding', {
                         'fileformat',
                         icons_enabled = true,
