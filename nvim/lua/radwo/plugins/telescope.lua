@@ -40,6 +40,7 @@ return {
                     },
                 },
             }
+
             require('telescope').load_extension('fzf')
             require("telescope").load_extension("grapple")
             require("telescope").load_extension("ui-select")
@@ -48,6 +49,7 @@ return {
             { "<leader>tt", "<cmd>Telescope grapple tags<cr>", desc = "Telescope - grapple tags" },
             { "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Telescope - find files" },
             { "<leader>tb", "<cmd>Telescope buffers<cr>", desc = "Telescope - buffers" },
+            { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Telescope - buffers" },
             {
                 "<leader>ts",
                 function()
