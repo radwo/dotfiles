@@ -1,5 +1,6 @@
 return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
@@ -23,9 +24,15 @@ return {
                         end,
                     },
                 },
+                extensions = {
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown({}),
+                    },
+                },
             }
             require('telescope').load_extension('fzf')
             require("telescope").load_extension("grapple")
+            require("telescope").load_extension("ui-select")
         end,
         keys = {
             { "<leader>tt", "<cmd>Telescope grapple tags<cr>", desc = "Telescope - grapple tags" },
@@ -35,7 +42,11 @@ return {
                 "<leader>ts",
                 function()
                     local builtin = require('telescope.builtin')
-                    builtin.grep_string({search = vim.fn.input("Grep >")})
+                    vim.ui.input({ prompt = "Grep >" }, function(input)
+                        if input then
+                            builtin.grep_string({ search = input })
+                        end
+                    end)
                 end,
                 desc = "Telescope - grep files",
             },
