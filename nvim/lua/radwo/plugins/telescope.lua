@@ -72,7 +72,7 @@ return {
                 "<leader>ts",
                 function()
                     local builtin = require('telescope.builtin')
-                    vim.ui.input({ prompt = "Grep >" }, function(input)
+                    vim.ui.input({ prompt = "Grep >", default = vim.fn.expand('<cword>') }, function(input)
                         if input then
                             builtin.grep_string({ search = input })
                         end
