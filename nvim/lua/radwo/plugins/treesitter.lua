@@ -6,7 +6,7 @@ return {
 
         configs.setup({
             -- A list of parser names, or "all" (the four listed parsers should always be installed)
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "elixir", "ruby", "heex", "javascript", "html", "go" },
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "elixir", "ruby", "heex", "javascript", "html", "go", "query", "markdown" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
@@ -14,6 +14,9 @@ return {
             -- Automatically install missing parsers when entering buffer
             -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
             auto_install = false,
+
+            ignore_install = {},
+            modules = {},
 
             highlight = {
                 -- `false` will disable the whole extension
