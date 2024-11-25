@@ -22,7 +22,6 @@ return {
             {'hrsh7th/cmp-nvim-lua'},     -- Optional
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},             -- Required
             {'rafamadriz/friendly-snippets'}, -- Optional
         },
         config = function(_, _)
@@ -30,7 +29,7 @@ return {
 
             local lsp_zero = require('lsp-zero')
 
-            local lsp_attach = function(client, bufnr)
+            local lsp_attach = function(_, bufnr)
                 local opts = {buffer = bufnr, remap = false}
 
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -73,13 +72,12 @@ return {
                     {name = 'path'},
                     {name = 'nvim_lsp'},
                     {name = 'nvim_lua'},
-                    {name = 'luasnip', keyword_length = 2},
                     {name = 'buffer', keyword_length = 3},
                 },
                 formatting = lsp_zero.cmp_format(),
                 snippet = {
                     expand = function(args)
-                        require('luasnip').lsp_expand(args.body)
+                        vim.snippet.expand(args.body)
                     end,
                 },
                 mapping = cmp.mapping.preset.insert({
