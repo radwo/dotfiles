@@ -6,25 +6,6 @@ return {
         event = "VeryLazy",
         lazy = false,
         version = false, -- set this if you want to always pull the latest change
-        opts = {
-            debug = true,
-            provider = "copilot",
-            auto_suggestions_provider = "copilot",
-            copilot = {
-                model = "claude-3.5-sonnet",
-                allow_insecure = false, -- Allow insecure server connections
-                timeout = 30000, -- Timeout in milliseconds
-                temperature = 0,
-                max_tokens = 4096,
-            },
-            behaviour = {
-                auto_suggestions = true, -- Experimental stage
-                auto_set_highlight_group = true,
-                auto_set_keymaps = true,
-                auto_apply_diff_after_generation = false,
-                support_paste_from_clipboard = false,
-            },
-        },
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = "make",
         dependencies = {
@@ -33,6 +14,7 @@ return {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
             --- The below dependencies are optional,
+            "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
             "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
             "zbirenbaum/copilot.lua", -- for providers='copilot'
             {
@@ -61,5 +43,35 @@ return {
                 ft = { "markdown", "Avante" },
             },
         },
+        config = function(_, _)
+            require('avante_lib').load()
+            require('avante').setup ({
+                debug = true,
+                provider = "copilot",
+                auto_suggestions_provider = "copilot",
+                copilot = {
+                    model = "claude-3.5-sonnet",
+                    allow_insecure = false, -- Allow insecure server connections
+                    timeout = 30000, -- Timeout in milliseconds
+                    temperature = 0,
+                    max_tokens = 4096,
+                },
+                behaviour = {
+                    auto_suggestions = true, -- Experimental stage
+                    auto_set_highlight_group = true,
+                    auto_set_keymaps = true,
+                    auto_apply_diff_after_generation = false,
+                    support_paste_from_clipboard = false,
+                },
+                mappings = {
+                    suggestion = {
+                        accept = "<Tab>",
+                        next = "<M-]>",
+                        prev = "<M-[>",
+                        dismiss = "<C-]>",
+                    },
+                },
+            })
+        end
     }
 }
