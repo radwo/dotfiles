@@ -5,6 +5,7 @@
 return {
     {
         "VonHeikemen/lsp-zero.nvim",
+        enabled = true,
         branch = "v4.x",
         lazy = false,
         dependencies = {

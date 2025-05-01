@@ -24,9 +24,9 @@ local prompts = {
 return {
     {
         "CopilotC-Nvim/CopilotChat.nvim",
-        enabled = false,
+        enabled = true,
         dev = false,
-        branch = "canary",
+        branch = "main",
         dependencies = {
             { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
             { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
@@ -34,27 +34,6 @@ return {
         },
         build = "make tiktoken",
         keys = {
-            -- Show help actions with telescope
-            {
-                "<leader>ah",
-                function()
-                    local actions = require("CopilotChat.actions")
-                    require("CopilotChat.integrations.telescope").pick(actions.help_actions())
-                end,
-                desc = "CopilotChat - Help actions",
-            },
-            -- Show prompts actions with telescope
-            {
-                "<leader>ap",
-                function()
-                    local actions = require("CopilotChat.actions")
-                    local select = require("CopilotChat.select")
-                    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions({
-                        selection = select.visual,
-                    }))
-                end,
-                desc = "CopilotChat - Prompt actions",
-            },
             {
                 "<leader>ap",
                 ":lua require('CopilotChat.integrations.telescope').pick(require('CopilotChat.actions').prompt_actions({selection = require('CopilotChat.select').visual}))<CR>",
@@ -115,7 +94,7 @@ return {
         },
         opts = {
             debug = false, -- Enable debugging
-            model = 'claude-3.5-sonnet',
+            model = 'claude-3.7-sonnet',
             prompts = prompts,
             auto_insert_mode = true,
             show_help = false,
