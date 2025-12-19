@@ -1,18 +1,20 @@
 working_directory="/Users/radwo/workspace"
 
 import = [
+    #"~/.config/alacritty/themes/themes/atom_one_light.toml"
     "~/.config/alacritty/themes/themes/deep_space.toml"
 ]
 
-[shell]
-program = "/opt/homebrew/bin/tmux"
-args = ["new-session", "-A", "-D", "-s", "main"]
+#[shell]
+#program = "/opt/homebrew/bin/tmux"
+#args = ["new-session", "-A", "-D", "-s", "main"]
 
 [window]
 padding.x = 2
 padding.y = 2
 opacity = 1.0
 startup_mode = "Fullscreen"
+option_as_alt = "Both"
 
 [font]
 normal.family = "RobotoMono Nerd Font Mono"

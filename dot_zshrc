@@ -65,7 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # load from the available list of plugins at ~/.oh-my-zsh/plugins
-plugins=(asdf direnv dash dotenv fzf git gcloud gpg-agent kubectl macos safe-paste ssh-agent z)
+plugins=(dash dotenv fzf git gcloud gpg-agent kubectl mise macos safe-paste ssh-agent z)
 
 # https://docs.brew.sh/Shell-Completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -125,3 +125,6 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+eval "$(~/.local/bin/mise activate zsh)"
+export KERL_CONFIGURE_OPTIONS="--with-ssl=$(brew --prefix openssl@3) --without-javac"

@@ -2,7 +2,7 @@ return {
     {
         "yetone/avante.nvim",
         dev = false,
-        enabled = true,
+        enabled = false,
         event = "VeryLazy",
         lazy = false,
         version = false, -- set this if you want to always pull the latest change
@@ -49,12 +49,16 @@ return {
                 debug = true,
                 provider = "copilot",
                 auto_suggestions_provider = "copilot",
-                copilot = {
-                    model = "claude-3.5-sonnet",
-                    allow_insecure = false, -- Allow insecure server connections
-                    timeout = 30000, -- Timeout in milliseconds
-                    temperature = 0,
-                    max_tokens = 4096,
+                providers = {
+                    copilot = {
+                        model = "claude-3.5-sonnet",
+                        allow_insecure = false, -- Allow insecure server connections
+                        timeout = 30000, -- Timeout in milliseconds
+                        extra_request_body = {
+                            temperature = 0,
+                            max_tokens = 4096,
+                        },
+                    },
                 },
                 behaviour = {
                     auto_suggestions = false, -- Experimental stage

@@ -69,6 +69,7 @@ tags
 .ruby-version
 .ruby-gemset
 .tool-versions
+mise.toml
 
 " Enhance Rails Intellisense in Solargraph
 " https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e
@@ -90,3 +91,6 @@ solargraph.rb
 shell.nix
 nix/
 .devcontainer/
+
+.claude
+CLAUDE.md
